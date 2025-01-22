@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+<!-- Fond du logo -->
+<rect width="50" height="50" rx="20" fill="transparent"/>
+<!--TOUT FAIT A LA MAIN-->
+<!-- Icône calendrier -->
+<rect x="0" y="0" width="50" height="50" rx="10" fill="#3893c2" />
+<line x1="0" y1="15" x2="50" y2="15" stroke="#ffffff" stroke-width="2"/>
+<circle cx="10" cy="25" r="5" fill="#264864"/>
+<circle cx="25" cy="25" r="5" fill="#264864"/>
+<circle cx="40" cy="25" r="5" fill="#264864"/>
+<!--Decorative circles-->
+<circle cx="38" cy="7" r="5" fill="#b4dbed"/>
+<circle cx="15" cy="35" r="3" fill="#81c0df"/>
+<circle cx="25" cy="35" r="3" fill="#81c0df"/>
+<circle cx="35" cy="35" r="3" fill="#81c0df"/>
+<circle cx="18" cy="42" r="3" fill="#81c0df"/>
+<circle cx="28" cy="42" r="3" fill="#81c0df"/>
+<circle cx="38" cy="42" r="3" fill="#81c0df"/>
+</svg>
