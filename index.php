@@ -17,12 +17,20 @@
     <title>Document</title>
 </head>
 <body>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-  LOGIN
-</button>
-
-<!-- Modal -->
+  <h1 class="text-center">Welcome to EVENTIFY where every day is a beautiful event.</h1>
+<div class="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle"><!-- Center the content vertically and horizontally -->
+  <div class="container text-center"> <!-- Center the content within the container -->
+      <!-- Button trigger modal Login -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+      LOGIN
+    </button>
+    <!-- Button trigger modal SignUp -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUp">
+      SIGN UP
+    </button>
+  </div>
+</div>
+<!-- Modal Login -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -49,9 +57,8 @@
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUp">
-  SIGN UP
-</button>
+
+<!-- Modal SignUp-->
 <div class="modal fade" id="signUp" tabindex="-1" aria-labelledby="signUpLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
