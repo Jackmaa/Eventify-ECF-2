@@ -26,14 +26,27 @@
 </head>
 <?php include './header.php'?>
 <?php
-    if (! $product = $req->fetch(PDO::FETCH_ASSOC)) {
-        echo 'Vous avez aucuns event de prévu';
+    while ($product = $req->fetch(PDO::FETCH_ASSOC)) {
+        echo '
+        <div class="card text-center m-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">' . $product['title'] . '</h5>
+            <p class="card-text">' . $product['description'] . '</p>
+            <p class="card-text">' . $product['location'] . '</p>
+            <p class="card-text">' . $product['date_start'] . ' ' . $product['hour_start'] . '</p>
+            <p class="card-text">' . $product['date_end'] . ' ' . $product['hour_end'] . '</p>
+            <a href="edit-event.php?id=' . $product['id_event'] . '" class="btn btn-primary">Edit</a>
+            <a href="delete-event.php?id=' . $product['id_event'] . '" class="btn btn-danger">Delete</a>
+          </div>
+          </div>';
     }
 ?>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModal">
-      Add an Event
-</button>
+<div class="container col-lg-3">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModal">
+        Add an Event
+  </button>
+</div>
 <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -42,13 +55,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
+        <form action="create-event.php" method="post">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingUser" placeholder="addatitle" name="title" autocomplete="on" required>
                 <label for="floatingUser">Add a title</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingPass" placeholder="where" name="description" autocomplete="on" required>
+                <input type="text" class="form-control" id="floatingPass" placeholder="where" name="location" autocomplete="on" required>
                 <label for="floatingPass">Where ?</label>
             </div>
             <div class="form-floating mb-3">
