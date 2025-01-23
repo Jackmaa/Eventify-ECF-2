@@ -10,15 +10,6 @@
         header('location: error-404.php'); // Redirect to error page if 'id' is not set
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"> <!-- Set the character encoding -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set the viewport for responsive design -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/styles/styles.css"><!-- Link to the stylesheet -->
-    <title>Document</title> <!-- Set the title of the document -->
-</head>
 <?php include './header.php'?>
 <!-- Profile picture upload form -->
 <div class="container col-lg-3">
