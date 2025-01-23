@@ -8,7 +8,10 @@ if (isset($_GET['id'])) { // Check if the event ID is provided in the URL
     $id = $_GET['id'];        // Get the event ID from the URL
 
     $req = $bdd->prepare(
-        'DELETE FROM `events` WHERE `id_event` = :id;'
+        'DELETE FROM
+            `events`
+        WHERE
+            `id_event` = :id;'
     ); // Prepare the SQL statement to delete the event
 
     $req->bindParam(':id', $id, PDO::PARAM_INT); // Bind the event ID parameter

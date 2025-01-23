@@ -4,10 +4,19 @@
     $id  = $_GET['id'];     // Get the event ID from the URL
     $req = $bdd->prepare(
         'SELECT
-    `id_event`,`title`,`location`,`description`,`date_start`,`date_end`,`hour_start`,`hour_end`
-    FROM
-    `events`
-    WHERE `id_event` = :id;');               // Prepare the SQL statement to select the event details
+            `id_event`,
+            `title`,
+            `location`,
+            `description`,
+            `date_start`,
+            `date_end`,
+            `hour_start`,
+            `hour_end`
+        FROM
+            `events`
+        WHERE
+            `id_event` = :id;'
+    );                                           // Prepare the SQL statement to select the event details
     $req->bindParam(':id', $id, PDO::PARAM_INT); // Bind the event ID parameter
     $req->execute();                             // Execute the SQL statement
 

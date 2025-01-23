@@ -19,10 +19,27 @@ if (isset($_POST['submit'])) {
     $category    = $_POST['category'];
 
     $req = $bdd->prepare(
-        'INSERT INTO `events`
-        (`title`, `location`, `description`, `date_start`, `date_end`, `hour_start`, `hour_end`, `id_user`, `category_name`)
+        'INSERT INTO
+            `events`
+                (`title`,
+                `location`,
+                `description`,
+                `date_start`,
+                `date_end`,
+                `hour_start`,
+                `hour_end`,
+                `id_user`,
+                `category_name`)
         VALUES
-        (:title, :location, :description, :date_start, :date_end, :hour_start, :hour_end, :id_user, :category);'
+            (:title,
+            :location,
+            :description,
+            :date_start,
+            :date_end,
+            :hour_start,
+            :hour_end,
+            :id_user,
+            :category);'
     );
     $req->bindParam(':title', $title, PDO::PARAM_STR);
     $req->bindParam(':location', $location, PDO::PARAM_STR);
