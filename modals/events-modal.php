@@ -32,7 +32,7 @@
                 <label for="floatingLocation">Location</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea type="textarea" class="form-control" id="floatingDesc" placeholder="Describe your event" name="description" autocomplete="on" required></textarea>
+                <textarea type="textarea" class="form-control" id="floatingDesc" placeholder="Describe your event" name="description" autocomplete="on" required style="height: 150px;"></textarea>
                 <label for="floatingDesc">Description</label>
             </div>
             <div class="mb-3 d-flex justify-content-evenly">

@@ -1,16 +1,14 @@
 <?php
     session_start();
-    include './dbh.class.php';
-
-    $connection = new Dbh;
-    $bdd        = $connection->getConnection();
-    $id         = $_SESSION['userid'];
-    $req        = $bdd->prepare(
+    include './header.php';
+    $id  = $_SESSION['userid'];
+    $req = $bdd->prepare(
         'SELECT
         `id_event`,`title`,`location`,`description`,`date_start`,`date_end`,`hour_start`,`hour_end`,`category_name`
         FROM
         `events`
-        WHERE `id_user` = :id;');
+        WHERE `id_user` = :id
+        ORDER BY `date_start` ASC;');
     $req->bindParam(':id', $id, PDO::PARAM_INT);
     $req->execute();
 
@@ -22,7 +20,7 @@
     $req2->execute();
 ?>
 <?php
-    include './header.php';
+
 ?>
 <div class="container col-lg-3 d-flex justify-content-center">
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModal">

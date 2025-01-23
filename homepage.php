@@ -1,11 +1,7 @@
 <?php
     session_start();
-    include './dbh.class.php';
-
-    $connection = new Dbh;
-    $bdd        = $connection->getConnection();
+    include './header.php';
 ?>
-<?php include './header.php'?>
 <section id="schedule">
     <div class="container">
         <div class="left d-flex justify-content-between">

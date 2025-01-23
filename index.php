@@ -1,8 +1,6 @@
 <?php
     session_start();
     include './dbh.class.php';
-    include './temp.php';
-
     $connection = new Dbh;
     $bdd        = $connection->getConnection();
 ?>

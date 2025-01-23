@@ -1,16 +1,13 @@
 <?php
-    session_start();           // Start the session
-    include './dbh.class.php'; // Include the database connection class
+    session_start();        // Start the session
+    include './header.php'; // Include the database connection class
 
-    $connection = new Dbh;                      // Create a new database connection
-    $bdd        = $connection->getConnection(); // Get the database connection
-    if (isset($_GET['id'])) {                   // Check if the 'id' parameter is set in the URL
-        $id = $_GET['id'];                          // Get the 'id' parameter from the URL
+    if (isset($_GET['id'])) { // Check if the 'id' parameter is set in the URL
+        $id = $_GET['id'];        // Get the 'id' parameter from the URL
     } else {
         header('location: error-404.php'); // Redirect to error page if 'id' is not set
     }
 ?>
-<?php include './header.php'?>
 <!-- Profile picture upload form -->
 <div class="container col-lg-3">
     <!-- Button trigger modal -->

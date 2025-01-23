@@ -1,5 +1,8 @@
 <?php
     include './temp.php';
+    include './dbh.class.php';
+    $connection = new Dbh;
+    $bdd        = $connection->getConnection();
 ?>
 
 <!DOCTYPE html>
