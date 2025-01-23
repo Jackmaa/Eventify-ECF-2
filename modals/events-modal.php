@@ -1,5 +1,6 @@
 <!-- Purpose: Contains the modals for the events page-->
 
+
 <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -12,6 +13,19 @@
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingTitle" placeholder="addatitle" name="title" autocomplete="on" required>
                 <label for="floatingTitle">Title</label>
+            </div>
+            <div class="mb-3">
+              <?php while ($category = $req2->fetch(PDO::FETCH_ASSOC)) {?>
+                <input
+                type="radio"
+                class="btn-check"
+                name="category" id="<?php echo $category['name'] ?>"
+                autocomplete="off"
+                value="<?php echo $category['name'] ?>"
+                required>
+                <label class="btn btn-outline-primary" for="<?php echo $category['name'] ?>"><?php echo $category['name'] ?></label>
+
+                <?php }?> <!-- Display all the categories in the database -->
             </div>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingLocation" placeholder="where" name="location" autocomplete="on" required>
