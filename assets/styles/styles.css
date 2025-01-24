@@ -299,3 +299,15 @@ h6 {
     font-size: var(--fs-4);
   }
 }
+
+/* || INDEX STYLES || */
+
+#index.container {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+#login-btn.btn-primary,
+#signup-btn.btn-primary {
+  margin: 10px;
+}
