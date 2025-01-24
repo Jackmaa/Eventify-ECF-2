@@ -9,11 +9,23 @@
       <div class="modal-body">
         <form action="includes/login.inc.php" method="post">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingUser" placeholder="name@example.com" name="uid" autocomplete="on">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingUser"
+                  placeholder="name@example.com"
+                  name="uid"
+                  autocomplete="on">
                 <label for="floatingUser">Username or Email</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPass" placeholder="password" name="pwd" autocomplete="on">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPass"
+                  placeholder="password"
+                  name="pwd"
+                  autocomplete="on">
                 <label for="floatingPass">Password</label>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">LOGIN</button> <!-- Submit button for login form -->

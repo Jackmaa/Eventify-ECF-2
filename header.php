@@ -3,6 +3,10 @@
     include './dbh.class.php';
     $connection = new Dbh;
     $bdd        = $connection->getConnection();
+    if (! isset($_SESSION['userid'])) { // Check if the 'id' parameter is set in the URL
+        header('location: error-404.php'); // Redirect to the 404 error page
+    }
+    var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>

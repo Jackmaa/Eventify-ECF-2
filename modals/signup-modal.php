@@ -9,19 +9,43 @@
       <div class="modal-body">
         <form action="includes/signup.inc.php" method="post">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingUserSignUp" placeholder="username" name="uid" autocomplete="on">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingUserSignUp"
+                  placeholder="username"
+                  name="uid"
+                  autocomplete="on">
                 <label for="floatingUserSignUp">Username</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingEmailSignUp" placeholder="name@example.com" name="email" autocomplete="on">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingEmailSignUp"
+                  placeholder="name@example.com"
+                  name="email"
+                  autocomplete="on">
                 <label for="floatingEmailSignUp">Email</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassSignUp" placeholder="password" name="pwd" autocomplete="on">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassSignUp"
+                  placeholder="password"
+                  name="pwd"
+                  autocomplete="on">
                 <label for="floatingPassSignUp">Password</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingRePassSignUp" placeholder="password" name="pwdRepeat" autocomplete="on">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingRePassSignUp"
+                  placeholder="password"
+                  name="pwdRepeat"
+                  autocomplete="on">
                 <label for="floatingRePassSignUp">Verify Password</label>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">SIGN UP</button> <!-- Submit button for login form -->

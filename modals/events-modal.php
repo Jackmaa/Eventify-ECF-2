@@ -28,11 +28,26 @@
                 <?php }?> <!-- Display all the categories in the database -->
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingLocation" placeholder="where" name="location" autocomplete="on" required>
+                <input
+                type="text"
+                class="form-control"
+                id="floatingLocation"
+                placeholder="where"
+                name="location"
+                autocomplete="on"
+                required>
                 <label for="floatingLocation">Location</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea type="textarea" class="form-control" id="floatingDesc" placeholder="Describe your event" name="description" autocomplete="on" required style="height: 150px;"></textarea>
+                <textarea
+                type="textarea"
+                class="form-control"
+                id="floatingDesc"
+                placeholder="Describe your event"
+                name="description"
+                autocomplete="on"
+                required
+                style="height: 150px;"></textarea>
                 <label for="floatingDesc">Description</label>
             </div>
             <div class="mb-3 d-flex justify-content-evenly">
