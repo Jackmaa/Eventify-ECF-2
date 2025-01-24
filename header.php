@@ -6,7 +6,7 @@
     if (! isset($_SESSION['userid'])) { // Check if the 'id' parameter is set in the URL
         header('location: error-404.php'); // Redirect to the 404 error page
     }
-    var_dump($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,14 @@
         <div class="container-fluid d-flex align-content-center gap-3">
             <img src="./assets/img/logo.svg" alt="Eventify Logo" width="50" height="50" class="align-self-center">
             <a class="navbar-brand" href="homepage.php">EVENTIFY</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

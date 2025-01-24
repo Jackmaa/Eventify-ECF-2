@@ -50,17 +50,31 @@
                 style="height: 150px;"></textarea>
                 <label for="floatingDesc">Description</label>
             </div>
-            <div class="mb-3 d-flex justify-content-evenly">
-                <label for="date-start">When ?</label>
-                <input type="date" id="date-start" name="date_start"/>
-                <label for="hour-start">Start time</label>
-                <input type="time" id="hour-start" name="hour_start" step="1800"/> <!-- 30 minutes step not very well supported ATM-->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                        <label for="date-start">When?</label>
+                        <input type="date" id="date-start" name="date_start" class="form-control"/>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="hour-start">Start time</label>
+                        <input type="time" id="hour-start" name="hour_start" class="form-control" step="1800"/>
+                        <small class="form-text text-muted">Please select the start time (in 30 mins intervals).</small>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3 d-flex justify-content-evenly">
-                <label for="date-end">To :</label>
-                <input type="date" id="date-end" name="date_end"/>
-                <label for="hour-end">End time</label>
-                <input type="time" id="hour-end" name="hour_end" step="1800"/> <!-- 30 minutes step not very well supported ATM-->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                        <label for="date-end">To:</label>
+                        <input type="date" id="date-end" name="date_end" class="form-control"/>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="hour-end">End time</label>
+                        <input type="time" id="hour-end" name="hour_end" class="form-control" step="1800"/>
+                        <small class="form-text text-muted">Please select the end time (in 30 mins intervals).</small>
+                    </div>
+                </div>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">EVENTIFY IT</button> <!-- Submit button for login form -->
         </form>
