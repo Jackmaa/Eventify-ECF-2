@@ -262,7 +262,6 @@ h6 {
 
 .no-event {
   place-self: center;
-  padding-block: var(--spacer);
   font-size: var(--fs-3);
 }
 
@@ -301,13 +300,74 @@ h6 {
 }
 
 /* || INDEX STYLES || */
-
-#index.container {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
+article > h1#welcome {
+  font-size: var(--fs-3);
+  text-align: center;
+  line-height: normal;
 }
+
 #login-btn.btn-primary,
 #signup-btn.btn-primary {
   margin: 10px;
 }
+/* 
+  these type the CSS variable as color
+  unlocking the ability for the browser 
+  to animate just that portion
+*/
+@property --＠color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsla(98, 100%, 62%, 0.822);
+}
+
+@property --＠color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsl(204 100% 59%);
+}
+
+/* keyframes that change the color variable */
+@keyframes gradient-change {
+  to {
+    --＠color-1: hsl(210 100% 59%);
+    --＠color-2: hsl(310 100% 59%);
+  }
+}
+
+h1,
+a#user-link.nav-link,
+a.navbar-brand,
+.left .today {
+  /* apply variable changes over time */
+  animation: gradient-change 2s linear infinite alternate;
+  padding-block: 1rem;
+  background: linear-gradient(
+    /* 
+      in oklch produces more vibrant gradient results 
+      learn more https://developer.chrome.com/docs/css-ui/access-colors-spaces#color_interpolation
+    */
+      to right in oklch,
+    var(--＠color-1),
+    var(--＠color-2) /* use the variables in a gradient (or wherever!) */
+  );
+
+  /* old browser support */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* modern browser version */
+  background-clip: text;
+  color: transparent;
+}
+
+/* #index-container {
+  animation: gradient-change 2s linear infinite alternate;
+  filter: invert(10%);
+  background: linear-gradient(
+    to right in oklch,
+    var(--＠color-1),
+    var(--＠color-2) 
+  );
+  border-radius: 5px;
+} */

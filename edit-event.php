@@ -1,5 +1,9 @@
 <?php
-    session_start();        // Start the session
+    session_start();                   // Start the session
+    if (! isset($_SESSION["userid"])) { // Check if the user is not logged in
+        header("Location: index.php");     // Redirect to the index page
+        exit();                            // Exit the script
+    }
     $title = "Edit Event";  // Set the page title
     include './header.php'; // Include the header file
     $id  = $_GET['id'];     // Get the event ID from the URL

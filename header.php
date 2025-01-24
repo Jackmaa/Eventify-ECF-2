@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <title><?php echo $title ?></title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.svg">
 </head>
 <body>
     <header>
@@ -54,7 +55,7 @@
 
                             <img class="profile-pic" src="<?php echo $profilePicPath; ?>" alt="Profile Picture" width="50" height="50"> <!-- Display the profile picture -->
 
-                            <a href="./user-profile.php?id=<?php echo $_SESSION["userid"] ?>" class="nav-link"> <!-- Link to the user's profile page -->
+                            <a href="./user-profile.php?id=<?php echo $_SESSION["userid"] ?>" class="nav-link" id="user-link"> <!-- Link to the user's profile page -->
                                 <?php echo $_SESSION["useruid"]; ?> <!-- Display the username -->
                             </a>
                         </li>
