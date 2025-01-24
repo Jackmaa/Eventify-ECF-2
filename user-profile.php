@@ -1,6 +1,7 @@
 <?php
-    session_start();        // Start the session
-    include './header.php'; // Include the database connection class
+    session_start();         // Start the session
+    $title = "User Profile"; // Set the page title
+    include './header.php';  // Include the database connection class
 
     if (isset($_GET['id'])) { // Check if the 'id' parameter is set in the URL
         $id = $_GET['id'];        // Get the 'id' parameter from the URL

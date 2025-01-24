@@ -1,5 +1,6 @@
 <?php
     session_start();        // Start the session
+    $title = "Edit Event";  // Set the page title
     include './header.php'; // Include the header file
     $id  = $_GET['id'];     // Get the event ID from the URL
     $req = $bdd->prepare(
@@ -89,26 +90,31 @@
             </div>
             <?php
             }?>
-            <div class="mb-3 d-flex justify-content-evenly align-items-center">
-                <label
-                    for="date-start">When ?
-                </label>
-                <input
-                    type="date"
-                    id="date-start"
-                    name="date_start"/> <!-- Input for the start date -->
-                <label for="hour-start">Start time</label>
-                <input
-                    type="time"
-                    id="hour-start"
-                    name="hour_start"
-                    step="1800"/> <!-- Input for the start time with 30 minutes step -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                        <label for="date-start">When?</label>
+                        <input type="date" id="date-start" name="date_start" class="form-control"/>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="hour-start">Start time</label>
+                        <input type="time" id="hour-start" name="hour_start" class="form-control" step="1800"/>
+                        <small class="form-text text-muted">Please select the start time (in 30 mins intervals).</small>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3 d-flex justify-content-evenly align-items-center">
-                <label for="date-end">To :</label>  <!-- Label for the end date input -->
-                <input type="date" id="date-end" name="date_end"/>  <!-- Input for the end date -->
-                <label for="hour-end">End time</label>  <!-- Label for the end time input -->
-                <input type="time" id="hour-end" name="hour_end" step="1800"/> <!-- Input for the end time with 30 minutes step -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                        <label for="date-end">To:</label>
+                        <input type="date" id="date-end" name="date_end" class="form-control"/>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="hour-end">End time</label>
+                        <input type="time" id="hour-end" name="hour_end" class="form-control" step="1800"/>
+                        <small class="form-text text-muted">Please select the end time (in 30 mins intervals).</small>
+                    </div>
+                </div>
             </div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">  <!-- Hidden input to pass the event ID -->
             <button type="submit" name="submit" class="btn btn-primary mt-5">EVENTIFY IT</button> <!-- Submit button -->
@@ -116,5 +122,6 @@
         </form>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Include Bootstrap JS -->
 <script src="./assets/js/date-input.js"></script> <!-- Include the date-input.js script -->
 </body>

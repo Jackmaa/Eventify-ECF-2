@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $title = "Homepage";
     include './header.php';
 ?>
 <section id="schedule">

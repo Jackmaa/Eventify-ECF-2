@@ -1,25 +1,26 @@
 <?php
     session_start();            // Start the session
+    $title = "My Events";       // Set the page title
     include './header.php';     // Include the header file
     $id  = $_SESSION['userid']; // Get the user ID from the session
     $req = $bdd->prepare(
         'SELECT
-      `id_event`,
-      `title`,
-      `location`,
-      `description`,
-      `date_start`,
-      `date_end`,
-      `hour_start`,
-      `hour_end`,
-      `category_name`,
-      CONCAT(`date_start`, "T", `hour_start`) AS `start`
-  FROM
-      `events`
-  WHERE
-      `id_user` = :id
-  ORDER BY
-      `start` ASC;');                        // Prepare the SQL statement to select the user's events
+          `id_event`,
+          `title`,
+          `location`,
+          `description`,
+          `date_start`,
+          `date_end`,
+          `hour_start`,
+          `hour_end`,
+          `category_name`,
+          CONCAT(`date_start`, "T", `hour_start`) AS `start`
+        FROM
+            `events`
+        WHERE
+            `id_user` = :id
+        ORDER BY
+            `start` ASC;');                  // Prepare the SQL statement to select the user's events
     $req->bindParam(':id', $id, PDO::PARAM_INT); // Bind the user ID parameter
     $req->execute();                             // Execute the SQL statement
 

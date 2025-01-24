@@ -4,9 +4,6 @@ include './dbh.class.php';
 $connection = new Dbh;
 $bdd        = $connection->getConnection();
 
-var_dump($_POST);
-var_dump($_SESSION);
-
 if (isset($_POST['submit'])) {
     $title       = $_POST['title'];
     $location    = $_POST['location'];

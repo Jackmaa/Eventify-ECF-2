@@ -16,18 +16,18 @@ if (isset($_POST['submit'])) {        // Check if the form is submitted
 
     $req = $bdd->prepare(
         'UPDATE
-        `events`
+            `events`
         SET
-        `title` = :title,
-        `location` = :location,
-        `description` = :description,
-        `date_start` = :date_start,
-        `date_end` = :date_end,
-        `hour_start` = :hour_start,
-        `hour_end` = :hour_end,
-        `category_name` = :category
+            `title` = :title,
+            `location` = :location,
+            `description` = :description,
+            `date_start` = :date_start,
+            `date_end` = :date_end,
+            `hour_start` = :hour_start,
+            `hour_end` = :hour_end,
+            `category_name` = :category
         WHERE
-        `events`.`id_event` = :id_event;'
+            `events`.`id_event` = :id_event;'
     );                                                             // Prepare the SQL statement to update the event details
     $req->bindParam(':title', $title, PDO::PARAM_STR);             // Bind the title parameter
     $req->bindParam(':location', $location, PDO::PARAM_STR);       // Bind the location parameter
