@@ -70,17 +70,10 @@ h6 {
   --fs-5: 5rem;
   --fs-p: 1rem;
 
-  --primary-clr50: #eff8fc;
   --primary-clr100: #d7edf6;
-  --primary-clr200: #b4dbed;
-  --primary-clr300: #81c0df;
-  --primary-clr400: #3893c2;
-  --primary-clr500: #2b81af;
-  --primary-clr600: #266794;
-  --primary-clr700: #255679;
+
   --primary-clr800: #264864;
-  --primary-clr900: #243e55;
-  --primary-clr1000: #132639;
+
   --grey: #e5e5e5;
   --grey-light: hsla(0, 0%, 90%, 0.8);
   --grey-lighter: hsla(0, 0%, 90%, 0.5);
@@ -110,7 +103,6 @@ h6 {
   position: relative;
   display: grid;
   height: fit-content;
-  font-family: var(--ff-brand);
 }
 
 .calendar {
@@ -187,7 +179,6 @@ h6 {
 .calendar .days .active {
   position: relative;
   font-size: var(--fs-2);
-  background-color: var(--primary-clr);
 }
 
 .calendar .days .active::before {
@@ -197,7 +188,7 @@ h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 10px 2px var(--primary-clr100);
+  box-shadow: 0 0 10px 2px var(--primary-clr800);
 }
 
 .calendar .days .today {
@@ -224,7 +215,7 @@ h6 {
 
 /*  || EVENT SECTION  || */
 .right {
-  display: grid;
+  /* display: grid; */
   position: relative;
   padding-block: var(--spacer);
 }
@@ -338,16 +329,16 @@ article > h1#welcome {
 h1,
 a#user-link.nav-link,
 a.navbar-brand,
-.left .today {
+.left .today,
+.left .day.event {
   /* apply variable changes over time */
   animation: gradient-change 2s linear infinite alternate;
   padding-block: 1rem;
   background: linear-gradient(
     /* 
       in oklch produces more vibrant gradient results 
-      learn more https://developer.chrome.com/docs/css-ui/access-colors-spaces#color_interpolation
-    */
-      to right in oklch,
+      */ to right
+      in oklch,
     var(--＠color-1),
     var(--＠color-2) /* use the variables in a gradient (or wherever!) */
   );
@@ -361,13 +352,13 @@ a.navbar-brand,
   color: transparent;
 }
 
-/* #index-container {
+div.day.event::after {
   animation: gradient-change 2s linear infinite alternate;
   filter: invert(10%);
   background: linear-gradient(
     to right in oklch,
     var(--＠color-1),
-    var(--＠color-2) 
+    var(--＠color-2)
   );
   border-radius: 5px;
-} */
+}

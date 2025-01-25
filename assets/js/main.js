@@ -27,54 +27,32 @@ const months = [
   "December",
 ];
 
-// EVENTS ARRAY ADD MORE IF NEED BE
+let eventsArr = [];
 
-const eventsArr = [
-  {
-    day: 1,
-    month: 12,
-    year: 2024,
-    events: [
-      {
-        title: "Event 1",
-        time: "10:00 AM - 11:00 AM",
-      },
-      {
-        title: "Event 2",
-        time: "11:00 AM - 12:00 PM",
-      },
-    ],
-  },
-  {
-    day: 12,
-    month: 12,
-    year: 2024,
-    events: [
-      {
-        title: "Event 1",
-        time: "10:00 AM",
-      },
-    ],
-  },
-  {
-    day: 21,
-    month: 1,
-    year: 2025,
-    events: [
-      {
-        title: "Event 1",
-        time: "10:00 AM - 11:00 AM",
-      },
-      {
-        title: "Event 2",
-        time: "11:00 AM - 12:00 PM",
-      },
-    ],
-  },
-];
+async function fetchEvents() {
+  try {
+    const response = await fetch("get-events.php");
+    const data = await response.json();
+    eventsArr = data.map((event) => ({
+      day: new Date(event.date_start).getDate(),
+      month: new Date(event.date_start).getMonth() + 1,
+      year: new Date(event.date_start).getFullYear(),
+      events: [
+        {
+          title: event.title,
+          time: `${event.hour_start} - ${event.hour_end}`,
+        },
+      ],
+    }));
+    initCalendar();
+  } catch (error) {
+    console.error("Error fetching events:", error);
+  }
+}
+
+fetchEvents();
 
 // Function to add days //
-
 function initCalendar() {
   // we get the previous month's days that were in the same week as the current month
   // the days of the current month
@@ -152,8 +130,6 @@ function initCalendar() {
   //adding the listener after the calendar is initialized
   addListner();
 }
-
-initCalendar();
 
 //previous month
 function prevMonth() {
