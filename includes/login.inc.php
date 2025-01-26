@@ -15,5 +15,5 @@ if (isset($_POST["submit"])) {
     $login->loginUser();
 
     // Redirect to the front page with a success message
-    header("location:../homepage.php?error-none");
+    header("location:../index.php?error-none");
 }

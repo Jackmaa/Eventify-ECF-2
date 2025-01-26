@@ -1,11 +1,5 @@
 <?php
     include './temp.php';
-    include './dbh.class.php';
-    $connection = new Dbh;
-    $bdd        = $connection->getConnection();
-    if (! isset($_SESSION['userid'])) { // Check if the 'id' parameter is set in the URL
-        header('location: error-404.php'); // Redirect to the 404 error page
-    }
 
 ?>
 
@@ -64,10 +58,22 @@
                             <a href="includes/logout.inc.php" class="nav-link">LOGOUT</a>
                         </li>
                     </ul>
-                </div> <!-- Link to logout -->
+                    <?php
+                        } else {
+                        ?>
+                        <div>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+                            <button type="button" id="login-btn" class="btn btn-sm btn-primary nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    LOGIN
+                                </button>
+                                <!-- Button trigger modal SignUp -->
+                                <button type="button" id="signup-btn" class="btn btn-sm btn-primary nav-link" data-bs-toggle="modal" data-bs-target="#signUp">
+                                    SIGN UP
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
                 <?php
                 }?>
-            </div>
-        </div>
     </nav>
     </header>

@@ -28,31 +28,7 @@ const months = [
 ];
 
 let eventsArr = [];
-
-async function fetchEvents() {
-  try {
-    const response = await fetch("get-events.php");
-    const data = await response.json();
-    eventsArr = data.map((event) => ({
-      day: new Date(event.date_start).getDate(),
-      month: new Date(event.date_start).getMonth() + 1,
-      year: new Date(event.date_start).getFullYear(),
-      events: [
-        {
-          id_event: event.id_event,
-          title: event.title,
-          time: `${event.hour_start} - ${event.hour_end}`,
-        },
-      ],
-    }));
-    initCalendar();
-  } catch (error) {
-    console.error("Error fetching events:", error);
-  }
-}
-
-fetchEvents();
-
+initCalendar();
 // Function to add days //
 function initCalendar() {
   // we get the previous month's days that were in the same week as the current month
@@ -217,3 +193,40 @@ function updateEvents(date) {
   }
   eventsContainer.innerHTML = events;
 }
+
+window.addEventListener("load", () => {
+  fetchEvents();
+  let eventsArr = [];
+
+  async function fetchEvents() {
+    try {
+      const response = await fetch("get-events.php");
+      const data = await response.json();
+
+      if (data.error) {
+        console.error("Error fetching events:", data.error);
+        // Handle the case where no user is logged in
+        document.querySelector(".events").innerHTML =
+          "<h3>Please 1 Log in or Sign up to start eventifying your days  </h3>";
+        return;
+      }
+
+      eventsArr = data.map((event) => ({
+        day: new Date(event.date_start).getDate(),
+        month: new Date(event.date_start).getMonth() + 1,
+        year: new Date(event.date_start).getFullYear(),
+        events: [
+          {
+            id_event: event.id_event,
+            title: event.title,
+            time: `${event.hour_start} - ${event.hour_end}`,
+          },
+        ],
+      }));
+      initCalendar();
+    } catch (error) {
+      document.querySelector(".events").innerHTML =
+        "<div><h3>Please 2 Log in or Sign up to start eventifying your days</h3></div>";
+    }
+  }
+});

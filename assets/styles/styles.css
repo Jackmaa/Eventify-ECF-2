@@ -255,6 +255,13 @@ h6 {
   font-size: var(--fs-3);
 }
 
+.right > .events > div {
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacer);
+  margin: var(--spacer);
+}
+
 @media (min-width: 1000px) {
   #schedule {
     padding: var(--spacer);
@@ -326,6 +333,7 @@ article > h1#welcome {
 }
 
 h1,
+.right > .events > div > h3,
 a#user-link.nav-link,
 a.navbar-brand,
 .left .today,
