@@ -1,23 +1,38 @@
 <?php
-include './dbh.class.php'; // Include the database connection class
+// Start the session
+session_start();
 
-$connection = new Dbh;                      // Create a new database connection instance
-$bdd        = $connection->getConnection(); // Get the database connection
-
-if (isset($_GET['id'])) { // Check if the event ID is provided in the URL
-    $id = $_GET['id'];        // Get the event ID from the URL
-
-    $req = $bdd->prepare(
-        'DELETE FROM
-            `events`
-        WHERE
-            `id_event` = :id;'
-    ); // Prepare the SQL statement to delete the event
-
-    $req->bindParam(':id', $id, PDO::PARAM_INT); // Bind the event ID parameter
-
-    $req->execute(); // Execute the SQL statement
-
-    header('Location: events.php'); // Redirect to the events page after deletion
-    exit();                         // Ensure that the script stops executing after the redirect
+// Check if the user is logged in
+if (! isset($_SESSION["userid"])) {
+    // If not, redirect to the login page
+    header("Location: index.php");
+    exit();
 }
+
+// Get the event ID and redirect page from the query parameters
+$id_event = $_GET['id'];
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'events.php';
+
+// Include the database handler class
+include './dbh.class.php';
+
+// Create a new database connection
+$connection = new Dbh;
+$bdd        = $connection->getConnection();
+
+try {
+    // Prepare the SQL query to delete the event
+    $req = $bdd->prepare('DELETE FROM `events` WHERE `id_event` = :id_event');
+    // Bind the event ID parameter to the query
+    $req->bindParam(':id_event', $id_event, PDO::PARAM_INT);
+    // Execute the query
+    $req->execute();
+
+    // Redirect to the specified page after deletion
+    header("Location: $redirect");
+    exit();
+} catch (Exception $e) {
+    // If there is an error, return it as a JSON response
+    echo json_encode(['error' => $e->getMessage()]);
+}
+?>

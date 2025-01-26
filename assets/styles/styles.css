@@ -242,10 +242,9 @@ h6 {
 }
 
 .events .event {
-  position: relative;
-  display: flex;
+  place-self: center;
+
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding-bottom: var(--spacer-md);
   font-size: 1.5rem;
