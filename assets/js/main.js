@@ -207,7 +207,7 @@ window.addEventListener("load", () => {
         console.error("Error fetching events:", data.error);
         // Handle the case where no user is logged in
         document.querySelector(".events").innerHTML =
-          "<h3>Please 1 Log in or Sign up to start eventifying your days  </h3>";
+          "<h3>Please Log in or Sign up to start eventifying your days  </h3>";
         return;
       }
 
@@ -226,7 +226,7 @@ window.addEventListener("load", () => {
       initCalendar();
     } catch (error) {
       document.querySelector(".events").innerHTML =
-        "<div><h3>Please 2 Log in or Sign up to start eventifying your days</h3></div>";
+        "<div><h3>Please Log in or Sign up to start eventifying your days</h3></div>";
     }
   }
 });
