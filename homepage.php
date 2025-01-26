@@ -4,7 +4,8 @@
         header("Location: index.php");
         exit();
     }
-    $title = "Homepage";
+    $title            = "Homepage";
+    $meta_description = "Our interactive calendar makes it easy to view your events.";
     include './header.php';
 ?>
 <section id="schedule">

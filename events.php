@@ -4,9 +4,10 @@
         header("Location: index.php");     // Redirect to the index page
         exit();                            // Exit the script
     }
-    $title = "My Events";       // Set the page title
-    include './header.php';     // Include the header file
-    $id  = $_SESSION['userid']; // Get the user ID from the session
+    $title            = "My Events";                   // Set the page title
+    $meta_description = "View and manage your events"; // Set the meta description
+    include './header.php';                            // Include the header file
+    $id  = $_SESSION['userid'];                        // Get the user ID from the session
     $req = $bdd->prepare(
         'SELECT
           `id_event`,
@@ -34,9 +35,6 @@
         FROM
         `category`;'); // Prepare the SQL statement to select all categories
     $req2->execute();      // Execute the SQL statement
-?>
-<?php
-
 ?>
 <div class="bg-transparent d-flex justify-content-end position-sticky z-3 top-0"> <!-- Sticky container for the add event button -->
   <button type="button" class="btn btn-lg position-sticky z-3 top-0" data-bs-toggle="modal" data-bs-target="#eventModal" data-toggle="tooltip" data-placement="left" title="Add an Event!"> <!-- Button to open the modal to add a new event -->

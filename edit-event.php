@@ -4,9 +4,10 @@
         header("Location: index.php");     // Redirect to the index page
         exit();                            // Exit the script
     }
-    $title = "Edit Event";  // Set the page title
-    include './header.php'; // Include the header file
-    $id  = $_GET['id'];     // Get the event ID from the URL
+    $title            = "Edit Event";              // Set the page title
+    $meta_description = "Edit your event details"; // Set the meta description
+    include './header.php';                        // Include the header file
+    $id  = $_GET['id'];                            // Get the event ID from the URL
     $req = $bdd->prepare(
         'SELECT
             `id_event`,
