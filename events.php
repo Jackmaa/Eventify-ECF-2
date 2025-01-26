@@ -1,5 +1,8 @@
 <?php
     session_start();                   // Start the session
+    include './dbh.class.php';         // Include the database handler
+    $bdd = new Dbh();                  // Create a new database handler
+    $bdd = $bdd->getConnection();      // Connect to the database
     if (! isset($_SESSION["userid"])) { // Check if the user is not logged in
         header("Location: index.php");     // Redirect to the index page
         exit();                            // Exit the script

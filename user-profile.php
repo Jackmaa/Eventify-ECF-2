@@ -4,8 +4,9 @@
         header("Location: index.php");     // Redirect to the index page
         exit();                            // Exit the script
     }
-    $title = "User Profile"; // Set the page title
-    include './header.php';  // Include the database connection class
+    $title            = "User Profile"; // Set the page title
+    $meta_description = "User Profile"; // Set the meta description 
+    include './header.php';             // Include the database connection class
 
     if (isset($_GET['id'])) { // Check if the 'id' parameter is set in the URL
         $id = $_GET['id'];        // Get the 'id' parameter from the URL

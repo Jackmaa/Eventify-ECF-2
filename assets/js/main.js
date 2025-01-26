@@ -196,8 +196,6 @@ function updateEvents(date) {
 
 window.addEventListener("load", () => {
   fetchEvents();
-  let eventsArr = [];
-
   async function fetchEvents() {
     try {
       const response = await fetch("get-events.php");
