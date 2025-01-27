@@ -11,6 +11,7 @@ if (! isset($_SESSION["userid"])) {
 
 // Get the event ID and redirect page from the query parameters
 $id_event = $_GET['id'];
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'events.php';
 
 // Include the database handler class
 include './dbh.class.php';
@@ -28,7 +29,7 @@ try {
     $req->execute();
 
     // Redirect to the specified page after deletion
-    header("Location: index.php");
+    header("Location: $redirect");
     exit();
 } catch (Exception $e) {
     // If there is an error, return it as a JSON response

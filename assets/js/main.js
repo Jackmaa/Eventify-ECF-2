@@ -177,7 +177,7 @@ function updateEvents(date) {
         events += `<div class="event d-grid">
             <div class="title d-flex justify-content-between">
               <h3 class="event-title">${event.title}</h3>
-              <a href="delete-event.php?id=${event.id_event}&redirect=homepage.php" class="btn-close p-0" aria-label="Delete"></a>
+              <a href="delete-event.php?id=${event.id_event}&redirect=index.php" class="btn-close p-0" aria-label="Delete"></a>
             </div>
             <div class="event-time">
               <span class="event-time">${event.time}</span>

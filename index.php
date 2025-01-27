@@ -9,8 +9,9 @@
         'SELECT
       `name`
       FROM
-      `category`;'); // Prepare the SQL statement to select all categories
-    $req2->execute();    // Execute the SQL statement
+      `category`;');               // Prepare the SQL statement to select all categories
+    $req2->execute();                  // Execute the SQL statement
+    $redirect = "?redirect=index.php"; // Set the redirect variable to redirect to the homepage
 ?>
 <?php include './header.php'; ?>
 

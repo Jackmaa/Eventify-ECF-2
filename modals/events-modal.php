@@ -9,7 +9,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="create-event.php" method="post">
+        <form action="create-event.php<?php echo $redirect ?>" method="post">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingTitle" placeholder="addatitle" name="title" autocomplete="on" required>
                 <label for="floatingTitle">Title</label>

@@ -4,6 +4,8 @@ include './dbh.class.php';
 $connection = new Dbh;
 $bdd        = $connection->getConnection();
 
+$redirect = $_GET['redirect'];
+
 if (isset($_POST['submit'])) {
     $title       = $_POST['title'];
     $location    = $_POST['location'];
@@ -48,5 +50,5 @@ if (isset($_POST['submit'])) {
     $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
     $req->bindParam(':category', $category, PDO::PARAM_STR);
     $req->execute();
-    header('Location: events.php');
+    header('Location: ' . $redirect);
 }

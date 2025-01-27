@@ -9,6 +9,7 @@
     }
     $title            = "My Events";                   // Set the page title
     $meta_description = "View and manage your events"; // Set the meta description
+    $redirect         = "?redirect=events.php";        // Set the redirect variable to redirect to the events page
     include './header.php';                            // Include the header file
     $id  = $_SESSION['userid'];                        // Get the user ID from the session
     $req = $bdd->prepare(
