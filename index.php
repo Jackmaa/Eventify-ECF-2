@@ -1,9 +1,9 @@
 <?php
     session_start();
-    $title            = "Homepage";
-    $meta_description = "Our interactive calendar makes it easy to view your events.";
-    include './dbh.class.php'; // Include the database handler
-    $bdd  = new Dbh();         // Create a new database handler
+    $title            = "Homepage";                                                    // Set the title of the page
+    $meta_description = "Our interactive calendar makes it easy to view your events."; // Set the meta description
+    include './dbh.class.php';                                                         // Include the database handler
+    $bdd  = new Dbh();                                                                 // Create a new database handler
     $bdd  = $bdd->getConnection();
     $req2 = $bdd->prepare(
         'SELECT
