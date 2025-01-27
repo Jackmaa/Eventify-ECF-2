@@ -2,7 +2,6 @@
 
 Setup :
 WAMPSERVER64, DB = "localhost"
-
 FIGMA LINK :
 https://www.figma.com/design/UqAcpsZE7KS42sHKjWzD4H/ECF-2?node-id=0-1&p=f&t=ftxgpqne5CLhivW4-0
 
