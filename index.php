@@ -1,10 +1,32 @@
 <?php
     session_start();
+    $id_user = $_SESSION['userid']; // Get the user ID from the session
+
     $title            = "Homepage";                                                    // Set the title of the page
     $meta_description = "Our interactive calendar makes it easy to view your events."; // Set the meta description
     include './dbh.class.php';                                                         // Include the database handler
-    $bdd  = new Dbh();                                                                 // Create a new database handler
-    $bdd  = $bdd->getConnection();
+    $bdd = new Dbh();                                                                  // Create a new database handler
+    $bdd = $bdd->getConnection();
+    $req = $bdd->prepare(
+        'SELECT
+          `auto_delete_past_events`
+        FROM
+        `user`
+      WHERE
+        `id_user` = :id');                        // Prepare the SQL statement to select the auto_delete_past_events column from the user table
+    $req->bindParam(':id', $id_user, PDO::PARAM_INT); // Bind the user ID to the SQL statement
+    $req->execute();                                  // Execute the SQL statement
+    $user       = $req->fetch(PDO::FETCH_ASSOC);      // Fetch the result as an associative array
+    $autoDelete = $user['auto_delete_past_events'];   // Get the value of the auto_delete_past_events column
+    if ($autoDelete) {                                // Check if the auto_delete_past_events column is set to true
+        $req = $bdd->prepare(
+            'DELETE
+            FROM
+            `events`
+          WHERE
+            `date_end` < CURDATE();'); // Prepare the SQL statement to delete events that have ended
+        $req->execute();                       // Execute the SQL statement
+    }
     $req2 = $bdd->prepare(
         'SELECT
       `name`

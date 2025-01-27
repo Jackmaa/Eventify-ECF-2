@@ -4,15 +4,19 @@
         header("Location: index.php");     // Redirect to the index page
         exit();                            // Exit the script
     }
-    $title            = "User Profile"; // Set the page title
-    $meta_description = "User Profile"; // Set the meta description 
-    include './header.php';             // Include the database connection class
-
-    if (isset($_GET['id'])) { // Check if the 'id' parameter is set in the URL
-        $id = $_GET['id'];        // Get the 'id' parameter from the URL
-    } else {
-        header('location: error-404.php'); // Redirect to error page if 'id' is not set
-    }
+    $id               = $_SESSION['userid'];    // Get the user ID from the session
+    $title            = "User Profile";         // Set the page title
+    $meta_description = "User Profile";         // Set the meta description 
+                                                // Include the database connection class
+    include './dbh.class.php';                  // Include the header file
+    $connection = new Dbh();                    // Create a new database handler
+    $bdd        = $connection->getConnection(); // Connect to the database
+    $stmt       = $bdd->prepare('SELECT `auto_delete_past_events` FROM `user` WHERE `id_user` = :id');
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user       = $stmt->fetch(PDO::FETCH_ASSOC);
+    $autoDelete = $user['auto_delete_past_events'];
+    include './header.php';
 ?>
 <!-- Profile picture upload form -->
 <div class="container col-lg-3">
@@ -43,7 +47,17 @@
     </div>
     </div>
 </div>
-
+<div class="container col-lg-3">
+    <form action="update_auto_delete.php" method="post">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="auto_delete" id="autoDelete"<?php echo $autoDelete ? 'checked' : ''; ?>>
+            <label class="form-check-label" for="autoDelete">
+                Auto-delete past events
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-1">Save</button>
+    </form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
