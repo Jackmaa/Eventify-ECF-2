@@ -7,11 +7,11 @@
         $id_user = $_SESSION['userid'];
         $req     = $bdd->prepare(
             'SELECT
-            `auto_delete_past_events`
-          FROM
-          `user`
-        WHERE
-          `id_user` = :id');                      // Prepare the SQL statement to select the auto_delete_past_events column from the user table
+              `auto_delete_past_events`
+            FROM
+              `user`
+            WHERE
+              `id_user` = :id');                  // Prepare the SQL statement to select the auto_delete_past_events column from the user table
         $req->bindParam(':id', $id_user, PDO::PARAM_INT); // Bind the user ID to the SQL statement
         $req->execute();                                  // Execute the SQL statement
         $user       = $req->fetch(PDO::FETCH_ASSOC);      // Fetch the result as an associative array
@@ -19,11 +19,11 @@
         if ($autoDelete) {                                // Check if the auto_delete_past_events column is set to true
             $req = $bdd->prepare(
                 'DELETE
-              FROM
-              `events`
-            WHERE
-              `date_end` < CURDATE();'); // Prepare the SQL statement to delete events that have ended
-            $req->execute();                         // Execute the SQL statement
+                FROM
+                `events`
+                WHERE
+                  `date_end` < CURDATE();'); // Prepare the SQL statement to delete events that have ended
+            $req->execute();                             // Execute the SQL statement
         }
     }
 
@@ -31,9 +31,9 @@
     $meta_description = "Our interactive calendar makes it easy to view your events."; // Set the meta description
     $req2             = $bdd->prepare(
         'SELECT
-      `name`
-      FROM
-      `category`;');               // Prepare the SQL statement to select all categories
+          `name`
+        FROM
+          `category`;');           // Prepare the SQL statement to select all categories
     $req2->execute();                  // Execute the SQL statement
     $redirect = "?redirect=index.php"; // Set the redirect variable to redirect to the homepage
 ?>
