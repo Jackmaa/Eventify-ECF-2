@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg bs-body-bg">
         <div class="container-fluid d-flex align-content-center gap-3">
             <img src="./assets/img/logo.svg" alt="Eventify Logo" width="50" height="50" class="align-self-center">
-            <a class="navbar-brand" href="homepage.php">EVENTIFY</a>
+            <a class="navbar-brand" href="index.php">EVENTIFY</a>
             <button
                 class="navbar-toggler"
                 type="button"
