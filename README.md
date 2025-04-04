@@ -1,6 +1,6 @@
 ////////////////////////// ECF 2 Website to manage your events \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 SNEEK PEAK 
-[!Banner](https://i.imgur.com/FvpfIfu.png)
+![Banner](https://i.imgur.com/FvpfIfu.png)
 
 
 
